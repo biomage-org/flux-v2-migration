@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pipeline-STAGING_SANDBOX_ID
+  labels:
+    sandboxId: STAGING_SANDBOX_ID
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: pipeline
+  namespace: pipeline-STAGING_SANDBOX_ID
+spec:
+  interval: 10m0s
+  url: https://github.com/biomage-org/pipeline
+  ref:
+    commit: STAGING_CHART_REF
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: pipeline
+  namespace: pipeline-STAGING_SANDBOX_ID
+  labels:
+    sandboxId: STAGING_SANDBOX_ID
+  annotations:
+    filter.fluxcd.io/pipelineRunner: glob:refs-pull-59-merge-*-pipeline-runner
+spec:
+  releaseName: pipeline
+  interval: 2m0s
+  chart: chart-infra/
+  valuesFrom:
+    - configMapKeyRef:
+        name: account-config
+        namespace: flux
+        key: account-config.yaml
+  values:
+    clusterEnv: staging
+    pipelineRunner:
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-d7a4950c86c76bf79a8b63b1e08170f202326f27-pipeline-runner
+    sandboxId: STAGING_SANDBOX_ID
+    memoryRequest: 4Gi
+    replicaCount: 0
+    serviceAccount:
+      iamRole: pipeline-role-staging
+    datadogTags: kube_namespace:pipeline-STAGING_SANDBOX_ID
