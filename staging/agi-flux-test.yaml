@@ -34,10 +34,11 @@ spec:
   interval: 2m0s
   chart:
     spec:
-      kind: GitRepository
-      name: ui
       chart: charts/nodejs
-      namespace: ui-agi-flux-test
+      sourceRef:
+        kind: GitRepository
+        name: ui
+        namespace: ui-agi-flux-test
   values:
     biomageCi:
       repo: biomage-org/ui
@@ -101,10 +102,11 @@ spec:
   interval: 2m0s
   chart:
     spec:
-      kind: GitRepository
-      name: api
       chart: charts/nodejs
-      namespace: api-agi-flux-test
+      sourceRef:
+        kind: GitRepository
+        name: api
+        namespace: api-agi-flux-test
   values:
     biomageCi:
       rdsSandboxId: default
@@ -174,10 +176,11 @@ spec:
   interval: 2m0s
   chart:
     spec:
-      kind: GitRepository
-      name: worker
       chart: chart-infra/
-      namespace: worker-agi-flux-test
+      sourceRef:
+        kind: GitRepository
+        name: worker
+        namespace: worker-agi-flux-test
   values:
     datadogTags: kube_namespace:worker-agi-flux-test
     kubernetes:
@@ -229,10 +232,11 @@ spec:
   interval: 2m0s
   chart:
     spec:
-      kind: GitRepository
-      name: pipeline
       chart: chart-infra/
-      namespace: pipeline-agi-flux-test
+      sourceRef:
+        kind: GitRepository
+        name: pipeline
+        namespace: pipeline-agi-flux-test
   values:
     clusterEnv: staging
     datadogTags: kube_namespace:pipeline-agi-flux-test
