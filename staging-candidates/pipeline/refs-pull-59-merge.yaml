@@ -11,10 +11,10 @@ metadata:
   name: pipeline
   namespace: pipeline-STAGING_SANDBOX_ID
 spec:
-  interval: 10m0s
+  interval: 5m0s
   url: https://github.com/biomage-org/pipeline
   ref:
-    commit: STAGING_CHART_REF
+    branch: STAGING_CHART_REF
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -28,16 +28,22 @@ metadata:
 spec:
   releaseName: pipeline
   interval: 2m0s
-  chart: chart-infra/
+  chart:
+    spec:
+      chart: chart-infra/
+      sourceRef:
+        kind: GitRepository
+        name: pipeline
+        namespace: pipeline-STAGING_SANDBOX_ID
   valuesFrom:
-    - configMapKeyRef:
-        name: account-config
-        namespace: flux
-        key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
+      name: account-config
+      optional: false
   values:
     clusterEnv: staging
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-d7a4950c86c76bf79a8b63b1e08170f202326f27-pipeline-runner
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-3e7be73b7ff805ca11fcead23788ba0ff4d70cd4-pipeline-runner
     sandboxId: STAGING_SANDBOX_ID
     memoryRequest: 4Gi
     replicaCount: 0
