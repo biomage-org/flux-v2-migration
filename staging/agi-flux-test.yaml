@@ -116,7 +116,8 @@ spec:
       tag: refs-pull-39-merge-9531769856dda964c40f9e61f36b314d2a0a5996
     ingress:
       annotations:
-        alb.ingress.kubernetes.io/healthcheck-path: /v2/health
+        loadBalancerHealthCheck:
+          path: /v2/health
     kubernetes:
       env: staging
     livenessProbe:
