@@ -14,13 +14,12 @@ spec:
   interval: 10m0s
   url: https://github.com/biomage-org/iac
   ref:
-    branch: FILLED_IN_BY_CI
-    commit: STAGING_CHART_REF
+    branch: STAGING_CHART_REF
   values:
     service:
       additionalHosts: false
 ---
-apiVersion: helm.toolkit.fluxcd.io/v1beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: ui
@@ -32,7 +31,16 @@ metadata:
 spec:
   releaseName: ui
   interval: 2m0s
-  chart: charts/nodejs
+  chart:
+    spec:
+      chart:
+        sourceRef:
+          name: ui
+          namespace: ui-STAGING_SANDBOX_ID
+      sourceRef:
+        kind: GitRepository
+        name: FILLED_IN_BY_CI
+        namespace: FILLED_IN_BY_CI
   values:
     # disable readiness probes as load balancer performs
     # its own health checks/cordoning
@@ -54,13 +62,13 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-b0664f89f23cb6289f1b1e4598b04a7bc48ad19a
+      tag: refs-pull-87-merge-8106669a5e9b273c418ecf4652f73791a96f4257
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
   valuesFrom:
-    - configMapKeyRef:
-        name: account-config
-        namespace: flux
-        key: account-config.yaml
+    - kind: ConfigMap
+      name: account-config
+      namespace: ui-STAGING_SANDBOX_ID
+      key: account-config.yaml
       # filled in by CI. do not modify.
