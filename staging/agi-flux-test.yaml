@@ -16,9 +16,6 @@ spec:
     branch: FILLED_IN_BY_CI
     commit: bd2d5a37a43cf670e0e7ea23fd40f375896f0b7d
   url: https://github.com/biomage-org/iac
-  values:
-    service:
-      additionalHosts: false
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -61,7 +58,7 @@ spec:
       probeType: exec
     replicaCount: 1
     service:
-      additionalHosts: FILLED_IN_BY_CI
+      additionalHosts: false
     serviceAccount:
       iamRole: ui-role-staging
   valuesFrom:
