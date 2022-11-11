@@ -61,10 +61,10 @@ spec:
     serviceAccount:
       iamRole: ui-role-staging
   valuesFrom:
-  - configMapKeyRef:
-      key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
       name: account-config
-      namespace: flux
+      optional: false
 ---
 apiVersion: v1
 kind: Namespace
@@ -129,10 +129,10 @@ spec:
     serviceAccount:
       iamRole: api-role-staging
   valuesFrom:
-  - configMapKeyRef:
-      key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
       name: account-config
-      namespace: flux
+      optional: false
 ---
 apiVersion: v1
 kind: Namespace
@@ -183,10 +183,10 @@ spec:
     serviceAccount:
       iamRole: worker-role-staging
   valuesFrom:
-  - configMapKeyRef:
-      key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
       name: account-config
-      namespace: flux
+      optional: false
 ---
 apiVersion: v1
 kind: Namespace
@@ -232,7 +232,7 @@ spec:
     serviceAccount:
       iamRole: pipeline-role-staging
   valuesFrom:
-  - configMapKeyRef:
-      key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
       name: account-config
-      namespace: flux
+      optional: false
