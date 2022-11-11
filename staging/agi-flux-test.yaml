@@ -154,7 +154,6 @@ spec:
   interval: 10m0s
   ref:
     branch: flux-v2-migration
-    # commit: 3214f05832ef0aaf946ba41d452714cc2464e128
   url: https://github.com/biomage-org/worker
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -212,7 +211,6 @@ spec:
   interval: 10m0s
   ref:
     branch: flux-v2-migration
-    # commit: d7a4950c86c76bf79a8b63b1e08170f202326f27
   url: https://github.com/biomage-org/pipeline
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
