@@ -11,7 +11,7 @@ metadata:
   name: api
   namespace: api-STAGING_SANDBOX_ID
 spec:
-  interval: 10m0s
+  interval: 5m0s
   url: https://github.com/biomage-org/iac
   ref:
     branch: STAGING_CHART_REF
@@ -62,7 +62,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-59629b5976e9c7de69d0bb84940e36f901d3bd24
+      tag: refs-pull-39-merge-026133b47ebfbb1f78a3d96300411461709ac582
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
