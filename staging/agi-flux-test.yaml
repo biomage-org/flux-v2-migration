@@ -5,7 +5,7 @@ metadata:
     sandboxId: agi-flux-test
   name: ui-agi-flux-test
 ---
-apiVersion: source.toolkit.fluxcd.io/v2beta1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: ui
@@ -77,7 +77,7 @@ metadata:
     sandboxId: agi-flux-test
   name: api-agi-flux-test
 ---
-apiVersion: source.toolkit.fluxcd.io/v2beta1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: api
@@ -149,7 +149,7 @@ metadata:
     sandboxId: agi-flux-test
   name: worker-agi-flux-test
 ---
-apiVersion: source.toolkit.fluxcd.io/v2beta1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: worker
@@ -207,7 +207,7 @@ metadata:
     sandboxId: agi-flux-test
   name: pipeline-agi-flux-test
 ---
-apiVersion: source.toolkit.fluxcd.io/v2beta1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: pipeline
