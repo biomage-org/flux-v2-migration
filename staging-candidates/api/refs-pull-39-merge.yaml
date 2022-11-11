@@ -14,9 +14,9 @@ spec:
   interval: 10m0s
   url: https://github.com/biomage-org/iac
   ref:
-    commit: STAGING_CHART_REF
+    branch: STAGING_CHART_REF
 ---
-apiVersion: helm.toolkit.fluxcd.io/v1beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: api
@@ -27,8 +27,17 @@ metadata:
     filter.fluxcd.io/chart-image: glob:refs-pull-39-merge-*
 spec:
   releaseName: api
-  chart: charts/nodejs
   interval: 2m0s
+  chart:
+    spec:
+      chart:
+        sourceRef:
+          name: api
+          namespace: api-STAGING_SANDBOX_ID
+      sourceRef:
+        kind: GitRepository
+        name: FILLED_IN_BY_CI
+        namespace: FILLED_IN_BY_CI
   values:
     service:
       externalPort: 3000
@@ -42,9 +51,8 @@ spec:
         cpu: "100m"
     hpa:
       enabled: false
-    ingress:
-      annotations:
-        alb.ingress.kubernetes.io/healthcheck-path: /v2/health
+    loadBalancerHealthCheck:
+      path: "/v2/health"
     kubernetes:
       env: staging
     biomageCi:
@@ -54,13 +62,13 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-9531769856dda964c40f9e61f36b314d2a0a5996
+      tag: refs-pull-39-merge-59629b5976e9c7de69d0bb84940e36f901d3bd24
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
   valuesFrom:
-    - configMapKeyRef:
-        name: account-config
-        namespace: flux
-        key: account-config.yaml
+    - kind: ConfigMap
+      name: account-config
+      namespace: api-STAGING_SANDBOX_ID
+      key: account-config.yaml
   # filled in by CI. do not modify.
