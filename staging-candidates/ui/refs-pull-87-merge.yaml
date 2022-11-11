@@ -15,9 +15,6 @@ spec:
   url: https://github.com/biomage-org/iac
   ref:
     branch: STAGING_CHART_REF
-  values:
-    service:
-      additionalHosts: false
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -50,7 +47,7 @@ spec:
     livenessProbe:
       probeType: tcpSocket
     service:
-      additionalHosts: FILLED_IN_BY_CI
+      additionalHosts: false
     kubernetes:
       env: staging
     biomageCi:
@@ -59,7 +56,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-011d13191f1c2fd6381b325284fc6201fda5130f
+      tag: refs-pull-87-merge-fa625c3aade7be578b048dbd33c4497cd738e3a1
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
