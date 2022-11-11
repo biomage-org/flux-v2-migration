@@ -11,7 +11,7 @@ metadata:
   name: ui
   namespace: ui-STAGING_SANDBOX_ID
 spec:
-  interval: 10m0s
+  interval: 5m0s
   url: https://github.com/biomage-org/iac
   ref:
     branch: STAGING_CHART_REF
@@ -62,7 +62,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-8106669a5e9b273c418ecf4652f73791a96f4257
+      tag: refs-pull-87-merge-02b594c409b152e38dfe77b08f9c458ed4e6c05e
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
