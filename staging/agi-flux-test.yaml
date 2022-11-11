@@ -114,14 +114,12 @@ spec:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
       tag: refs-pull-39-merge-9531769856dda964c40f9e61f36b314d2a0a5996
-    ingress:
-      annotations:
-        loadBalancerHealthCheck:
-          path: /v2/health
     kubernetes:
       env: staging
     livenessProbe:
       probeType: tcpSocket
+    loadBalancerHealthCheck:
+      path: /v2/health
     readinessProbe:
       path: /v2/health
     replicaCount: 1
