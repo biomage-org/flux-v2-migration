@@ -11,7 +11,7 @@ metadata:
   name: ui
   namespace: ui-agi-flux-test
 spec:
-  interval: 10m0s
+  interval: 10m1s
   ref:
     branch: flux-v2-migration
   url: https://github.com/biomage-org/iac
