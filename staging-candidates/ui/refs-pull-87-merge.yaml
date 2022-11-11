@@ -14,7 +14,8 @@ spec:
   interval: 10m0s
   url: https://github.com/biomage-org/iac
   ref:
-    branch: STAGING_CHART_REF
+    branch: FILLED_IN_BY_CI
+    commit: STAGING_CHART_REF
   values:
     service:
       additionalHosts: false
@@ -53,7 +54,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-551631bee7d6ccd57ab207fc8297d11ce97434c8
+      tag: refs-pull-87-merge-b0664f89f23cb6289f1b1e4598b04a7bc48ad19a
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
