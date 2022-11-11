@@ -11,13 +11,12 @@ metadata:
   name: worker
   namespace: worker-STAGING_SANDBOX_ID
 spec:
-  interval: 10m0s
+  interval: 5m0s
   url: https://github.com/biomage-org/worker
   ref:
-    branch: FILLED_IN_BY_CI
-    commit: STAGING_CHART_REF
+    branch: STAGING_CHART_REF
 ---
-apiVersion: helm.toolkit.fluxcd.io/v1beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: worker
@@ -29,13 +28,22 @@ metadata:
     sandboxId: STAGING_SANDBOX_ID
 spec:
   releaseName: worker
-  intarval: 2m0s
-  chart: chart-infra/
+  interval: 2m0s
+  chart:
+    spec:
+      chart:
+        sourceRef:
+          name: worker
+          namespace: worker-STAGING_SANDBOX_ID
+      sourceRef:
+        kind: GitRepository
+        name: FILLED_IN_BY_CI
+        namespace: FILLED_IN_BY_CI
   valuesFrom:
-    - configMapKeyRef:
-        name: account-config
-        namespace: flux
-        key: account-config.yaml
+    - kind: ConfigMap
+      valuesKey: account-config.yaml
+      name: account-config
+      optional: false
   values:
     kubernetes:
       env: staging
@@ -44,8 +52,8 @@ spec:
     sandboxId: STAGING_SANDBOX_ID
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-3214f05832ef0aaf946ba41d452714cc2464e128-r
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-4b16ae8080990f7217aabff84057017f5f9519e7-r
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-3214f05832ef0aaf946ba41d452714cc2464e128-python
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-4b16ae8080990f7217aabff84057017f5f9519e7-python
     datadogTags: kube_namespace:worker-STAGING_SANDBOX_ID
