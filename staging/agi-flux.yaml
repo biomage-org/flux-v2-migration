@@ -191,7 +191,7 @@ spec:
   - kind: ConfigMap
     name: account-config
     optional: false
-    valuesKey: account-config.yaml
+    key: account-config.yaml
 ---
 apiVersion: v1
 kind: Namespace
@@ -244,4 +244,4 @@ spec:
   - kind: ConfigMap
     name: account-config
     optional: false
-    valuesKey: account-config.yaml
+    key: account-config.yaml
