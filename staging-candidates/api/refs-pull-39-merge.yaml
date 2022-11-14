@@ -5,16 +5,69 @@ metadata:
   labels:
     sandboxId: STAGING_SANDBOX_ID
 ---
+# GitRepository to watch for chart changes
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: api
+  name: api-chart
   namespace: api-STAGING_SANDBOX_ID
 spec:
   interval: 5m0s
   url: https://github.com/biomage-org/iac
   ref:
     branch: STAGING_CHART_REF
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageRepository
+metadata:
+  name: api
+  namespace: api-STAGING_SANDBOX_ID
+spec:
+  image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/api
+  interval: 2m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImagePolicy
+metadata:
+  name: api
+  namespace: api-STAGING_SANDBOX_ID
+spec:
+  imageRepositoryRef:
+    name: api
+  filterTags:
+    pattern: ^refs-pull-39-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$
+    extract: $timestamp
+  policy:
+    numerical:
+      order: asc
+---
+# GitRepository to update the helm release in case of image updates
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: api-release
+  namespace: api-STAGING_SANDBOX_ID
+spec:
+  interval: 2m0s
+  url: https://github.com/biomage-org/flux-v2-migration
+  ref:
+    branch: master
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: api
+  namespace: api-STAGING_SANDBOX_ID
+spec:
+  interval: 2m0s
+  sourceRef:
+    kind: GitRepository
+    name: api-release
+    namespace: api-STAGING_SANDBOX_ID
+  git:
+    commit:
+      author:
+        email: ci@biomage.net
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -24,7 +77,7 @@ metadata:
   labels:
     sandboxId: STAGING_SANDBOX_ID
   annotations:
-    filter.fluxcd.io/chart-image: glob:refs-pull-39-merge-*
+    filter.fluxcd.io/chart-image: FILLED_IN_BY_CI
 spec:
   releaseName: api
   interval: 2m0s
@@ -33,7 +86,7 @@ spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: api
+        name: api-chart
         namespace: api-STAGING_SANDBOX_ID
   values:
     service:
@@ -59,7 +112,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-22bb7fff7b844f2f26d56cdffbcd492700e3f93e
+      tag: 'refs-pull-39-merge-f1904bee29bce1d0cdf1e666dffa3fa22a6c2937-1668469437 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}'
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
@@ -68,4 +121,4 @@ spec:
       name: account-config
       valuesKey: account-config.yaml
       optional: false
-  # filled in by CI. do not modify.
+# filled in by CI. do not modify.
