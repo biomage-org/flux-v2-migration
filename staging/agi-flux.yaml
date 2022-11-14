@@ -42,7 +42,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-ca8d62d13fefdf0e7516acf62bc0f0bdd141219c
+      tag: refs-heads-master-ca8d62d13fefdf0e7516acf62bc0f0bdd141219c
     kubernetes:
       env: staging
     livenessProbe:
@@ -113,7 +113,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-dbfbeeff9558545268a53436537aa690e648fc81
+      tag: refs-heads-master-dbfbeeff9558545268a53436537aa690e648fc81
     kubernetes:
       env: staging
     livenessProbe:
@@ -179,9 +179,9 @@ spec:
     kubernetes:
       env: staging
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-ac34fb50ecac815aecfac3e84d5ee201dfa6d6c0-python
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-heads-master-ac34fb50ecac815aecfac3e84d5ee201dfa6d6c0-python
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-ac34fb50ecac815aecfac3e84d5ee201dfa6d6c0-r
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-heads-master-ac34fb50ecac815aecfac3e84d5ee201dfa6d6c0-r
       memoryRequest: 4Gi
     replicaCount: 0
     sandboxId: agi-flux
@@ -235,7 +235,7 @@ spec:
     datadogTags: kube_namespace:pipeline-agi-flux
     memoryRequest: 4Gi
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-54583d03eb17fab65b2d793dfd3731ada05889f7-pipeline-runner
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-heads-master-54583d03eb17fab65b2d793dfd3731ada05889f7-pipeline-runner
     replicaCount: 0
     sandboxId: agi-flux
     serviceAccount:
