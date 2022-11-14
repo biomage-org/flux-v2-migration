@@ -90,6 +90,7 @@ metadata:
     filter.fluxcd.io/chart-image: glob:refs-pull-39-merge-*
   labels:
     sandboxId: agi-flux
+    test: make-it-reconcile
   name: api
   namespace: api-agi-flux
 spec:
