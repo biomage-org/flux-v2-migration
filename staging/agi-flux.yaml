@@ -61,7 +61,7 @@ spec:
     serviceAccount:
       iamRole: ui-role-staging
   valuesFrom:
-  - key: account-config.yaml
+  - valuesKey: account-config.yaml
     kind: ConfigMap
     name: account-config
     namespace: ui-agi-flux
