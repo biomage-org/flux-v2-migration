@@ -9,7 +9,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: ui
-  namespace: agi-test-pinning
+  namespace: ui-agi-test-pinning
 spec:
   interval: 5m0s
   ref:
