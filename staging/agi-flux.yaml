@@ -163,7 +163,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: 'refs-pull-39-merge-f3ce1c88d49d81504a71f0b6fd74a506dc64fccc-1668470720' # {"$imagepolicy": "api-agi-flux:api:tag"}
+      tag: 'refs-pull-39-merge-dac613f915ac3990214b9e0a261a0c2d2a1a200d-1668509695' # {"$imagepolicy": "api-agi-flux:api:tag"}
     kubernetes:
       env: staging
     livenessProbe:
