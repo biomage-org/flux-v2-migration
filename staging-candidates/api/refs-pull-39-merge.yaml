@@ -1,52 +1,50 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
   labels:
-    sandboxId: STAGING_SANDBOX_ID
+    sandboxId: FILLED_IN_BY_CI
 ---
 # GitRepository to watch for chart changes
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: api-chart
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
 spec:
   interval: 5m0s
   url: https://github.com/biomage-org/iac
   ref:
-    branch: STAGING_CHART_REF
+    branch: FILLED_IN_BY_CI
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
 metadata:
-  name: api
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
 spec:
-  image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/api
+  image: FILLED_IN_BY_CI
   interval: 2m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
 metadata:
-  name: api
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
 spec:
   imageRepositoryRef:
-    name: api
+    name: FILLED_IN_BY_CI
   filterTags:
-    pattern: ^refs-pull-39-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$
-    extract: $timestamp
-  policy:
-    numerical:
-      order: asc
+    pattern: FILLED_IN_BY_CI
+    extract: FILLED_IN_BY_CI
+  policy: FILLED_IN_BY_CI
 ---
 # GitRepository to update the helm release in case of image updates
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: api-release
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
 spec:
   interval: 2m0s
   url: https://github.com/biomage-org/flux-v2-migration
@@ -56,14 +54,14 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: api
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
 spec:
   interval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: api-release
-    namespace: api-STAGING_SANDBOX_ID
+    name: FILLED_IN_BY_CI
+    namespace: FILLED_IN_BY_CI
   git:
     commit:
       author:
@@ -72,20 +70,20 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: api
-  namespace: api-STAGING_SANDBOX_ID
+  name: FILLED_IN_BY_CI
+  namespace: FILLED_IN_BY_CI
   labels:
-    sandboxId: STAGING_SANDBOX_ID
+    sandboxId: FILLED_IN_BY_CI
 spec:
-  releaseName: api
+  releaseName: FILLED_IN_BY_CI
   interval: 2m0s
   chart:
     spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: api-chart
-        namespace: api-STAGING_SANDBOX_ID
+        name: FILLED_IN_BY_CI
+        namespace: FILLED_IN_BY_CI
   values:
     service:
       externalPort: 3000
@@ -101,19 +99,6 @@ spec:
       enabled: false
     loadBalancerHealthCheck:
       path: "/v2/health"
-    kubernetes:
-      env: staging
-    biomageCi:
-      repo: biomage-org/api
-      sandboxId: STAGING_SANDBOX_ID
-      rdsSandboxId: STAGING_RDS_SANDBOX_ID
-    image:
-      registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
-      repository: api
-      tag: 'refs-pull-39-merge-f3ce1c88d49d81504a71f0b6fd74a506dc64fccc-1668470720 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}'
-    replicaCount: 1
-    serviceAccount:
-      iamRole: api-role-staging
   valuesFrom:
     - kind: ConfigMap
       name: account-config
