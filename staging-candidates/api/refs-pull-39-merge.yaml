@@ -76,8 +76,6 @@ metadata:
   namespace: api-STAGING_SANDBOX_ID
   labels:
     sandboxId: STAGING_SANDBOX_ID
-  annotations:
-    filter.fluxcd.io/chart-image: FILLED_IN_BY_CI
 spec:
   releaseName: api
   interval: 2m0s
@@ -112,7 +110,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: 'refs-pull-39-merge-f1904bee29bce1d0cdf1e666dffa3fa22a6c2937-1668469437 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}'
+      tag: 'refs-pull-39-merge-f3ce1c88d49d81504a71f0b6fd74a506dc64fccc-1668470720 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}'
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
