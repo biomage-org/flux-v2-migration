@@ -64,7 +64,7 @@ spec:
   - valuesKey: account-config.yaml
     kind: ConfigMap
     name: account-config
-    namespace: ui-agi-flux
+    optional: false
 ---
 apiVersion: v1
 kind: Namespace
