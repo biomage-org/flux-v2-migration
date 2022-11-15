@@ -128,7 +128,8 @@ spec:
   git:
     commit:
       author:
-        email: ci@biomage.net
+        name: Flux Autorelease
+        email: flux@biomage.net
   interval: 2m0s
   sourceRef:
     kind: GitRepository
