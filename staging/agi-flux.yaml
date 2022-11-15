@@ -133,8 +133,8 @@ spec:
   interval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: api-release
-    namespace: api-agi-flux
+    name: flux-system
+    namespace: flux-system
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
