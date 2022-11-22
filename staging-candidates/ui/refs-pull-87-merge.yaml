@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: ui-STAGING_SANDBOX_ID
+  name: ""
   labels:
     sandboxId: STAGING_SANDBOX_ID
 ---
@@ -9,7 +9,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: ui
-  namespace: ui-STAGING_SANDBOX_ID
+  namespace: ""
 spec:
   interval: 5m0s
   url: https://github.com/biomage-org/iac
@@ -19,8 +19,8 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: ui
-  namespace: ui-STAGING_SANDBOX_ID
+  name: ""
+  namespace: ""
   labels:
     sandboxId: STAGING_SANDBOX_ID
   annotations:
@@ -34,7 +34,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: ui
-        namespace: ui-STAGING_SANDBOX_ID
+        namespace: ""
   values:
     # disable readiness probes as load balancer performs
     # its own health checks/cordoning
@@ -56,7 +56,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-669fda9c7839eb099e2de440afc1b857ea70bce5
+      tag: refs-pull-87-merge-ebb429124d1ffbdbbe234572dd70062abcb5547f-1669132358
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
