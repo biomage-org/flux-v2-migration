@@ -34,7 +34,7 @@ spec:
   imageRepositoryRef:
     name: pipeline
   filterTags:
-    pattern: ^refs-pull-59-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$-pipeline-runner
+    pattern: ^refs-pull-59-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-pipeline-runner
     extract: $timestamp
   policy:
     numerical:
@@ -82,7 +82,7 @@ spec:
   values:
     clusterEnv: staging
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-f6b6779c187bc2a398cc22073593ea8c2eb6893e-pipeline-runner # {"$imagepolicy": "pipeline-STAGING_SANDBOX_ID:pipeline:tag"}
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-37dbd3ed0eb49583ad9eea08d065fbd68e4d62b5-pipeline-runner # {"$imagepolicy": "pipeline-STAGING_SANDBOX_ID:pipeline:tag"}
     sandboxId: STAGING_SANDBOX_ID
     memoryRequest: 4Gi
     replicaCount: 0
