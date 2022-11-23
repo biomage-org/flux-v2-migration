@@ -14,7 +14,7 @@ spec:
   interval: 5m0s
   url: https://github.com/biomage-org/worker
   ref:
-    branch: "master"
+    branch: refs-pull-41-merge
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -49,8 +49,8 @@ spec:
     sandboxId: STAGING_SANDBOX_ID
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-f998378be832b48e7465d45b198a08f1cc9b6ab4-r
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-b2f7b057b1d203488e970091463876388d0cbaf4-r
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-f998378be832b48e7465d45b198a08f1cc9b6ab4-python
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-b2f7b057b1d203488e970091463876388d0cbaf4-python
     datadogTags: kube_namespace:worker-STAGING_SANDBOX_ID
