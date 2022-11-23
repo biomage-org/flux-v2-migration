@@ -268,7 +268,7 @@ spec:
         name: pipeline
         namespace: pipeline-agi-flux-v2
   interval: 2m0s
-  releaseName: ''
+  releaseName: pipeline
   values:
     clusterEnv: staging
     datadogTags: kube_namespace:pipeline-agi-flux-v2
