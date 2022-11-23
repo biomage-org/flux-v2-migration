@@ -118,7 +118,7 @@ spec:
   interval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: api-release
+    name: api
     namespace: api-agi-test-flux
   git:
     commit:
