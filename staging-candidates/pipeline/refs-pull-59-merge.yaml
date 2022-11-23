@@ -43,7 +43,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: pipeline-image-update
+  name: pipeline
   namespace: pipeline-STAGING_SANDBOX_ID
 spec:
   interval: 2m0s
@@ -82,7 +82,7 @@ spec:
   values:
     clusterEnv: staging
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-bf9e91d092d806aeb2e935f239a836c147c7cc9c-pipeline-runner
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-72a7433f3d65a4fb0f6d96cf086c18a8588c6fe9-pipeline-runner
     sandboxId: STAGING_SANDBOX_ID
     memoryRequest: 4Gi
     replicaCount: 0
