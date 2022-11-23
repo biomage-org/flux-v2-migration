@@ -12,9 +12,9 @@ metadata:
   namespace: pipeline-STAGING_SANDBOX_ID
 spec:
   interval: 5m0s
-  url: https://github.com/biomage-org/worker
+  url: https://github.com/biomage-org/pipeline
   ref:
-    branch: "master"
+    branch: refs-pull-59-merge
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -43,7 +43,7 @@ spec:
   values:
     clusterEnv: staging
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-518407ad3a215d499c3841b3e91dc3fc4694ae7d-pipeline-runner
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-72af618dfc02a72301634878e673a0c4c3cddd62-pipeline-runner
     sandboxId: STAGING_SANDBOX_ID
     memoryRequest: 4Gi
     replicaCount: 0
