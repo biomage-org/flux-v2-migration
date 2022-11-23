@@ -241,7 +241,7 @@ metadata:
   name: worker
   namespace: worker-agi-flux-v2
 spec:
-  image: /worker
+  image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker
   interval: 2m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
@@ -253,7 +253,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$-r
+    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-r
     extract: $timestamp
   policy:
     numerical:
@@ -268,7 +268,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$-python
+    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-python
     extract: $timestamp
   policy:
     numerical:
@@ -351,7 +351,7 @@ metadata:
   name: pipeline
   namespace: pipeline-agi-flux-v2
 spec:
-  image: /pipeline
+  image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline
   interval: 2m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
@@ -363,7 +363,7 @@ spec:
   imageRepositoryRef:
     name: pipeline
   filterTags:
-    pattern: ^refs-pull-59-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$-pipeline-runner
+    pattern: ^refs-pull-59-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-pipeline-runner
     extract: $timestamp
   policy:
     numerical:
