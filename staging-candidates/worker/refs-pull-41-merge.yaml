@@ -14,7 +14,7 @@ spec:
   interval: 5m0s
   url: https://github.com/biomage-org/worker
   ref:
-    branch: STAGING_CHART_REF
+    branch: "master"
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -49,8 +49,8 @@ spec:
     sandboxId: STAGING_SANDBOX_ID
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-8c8de5112c18da7a79750d85d5812ea74c3343fe-r
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-f998378be832b48e7465d45b198a08f1cc9b6ab4-r
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-8c8de5112c18da7a79750d85d5812ea74c3343fe-python
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-f998378be832b48e7465d45b198a08f1cc9b6ab4-python
     datadogTags: kube_namespace:worker-STAGING_SANDBOX_ID
