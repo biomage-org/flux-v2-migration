@@ -118,8 +118,8 @@ spec:
   interval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: api
-    namespace: api-agi-test-flux
+    name: flux-system
+    namespace: flux-system
   git:
     commit:
       author:
