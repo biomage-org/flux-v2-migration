@@ -180,7 +180,7 @@ spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: ''
+        name: api
         namespace: api-agi-flux-v2
   values:
     service:
