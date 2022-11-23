@@ -26,7 +26,7 @@ metadata:
   annotations:
     filter.fluxcd.io/pipelineRunner: glob:refs-pull-59-merge-*-pipeline-runner
 spec:
-  releaseName: ""
+  releaseName: pipeline
   interval: 2m0s
   chart:
     spec:
@@ -43,7 +43,7 @@ spec:
   values:
     clusterEnv: staging
     pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-002da24e866460dc2aa146d33714666530dc6dbf-pipeline-runner
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-bfa18a077865efbc0131d9c6593b057ad281f473-pipeline-runner
     sandboxId: STAGING_SANDBOX_ID
     memoryRequest: 4Gi
     replicaCount: 0
