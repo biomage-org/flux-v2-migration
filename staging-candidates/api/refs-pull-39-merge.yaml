@@ -49,8 +49,8 @@ spec:
   interval: 2m0s
   sourceRef:
     kind: GitRepository
-    name: api-release
-    namespace: api-STAGING_SANDBOX_ID
+    name: flux-system
+    namespace: flux-system
   git:
     commit:
       author:
@@ -97,7 +97,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-9b7cd99a5569a31be4d4eac2d343bf0c9988ffd3-1669215005 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
+      tag: refs-pull-39-merge-4118a7ced9660d464a273e3bf49564db8d12b1df-1669215621 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
