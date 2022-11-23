@@ -321,10 +321,10 @@ spec:
     sandboxId: agi-flux-v2
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-368ac42fa548fd85a41ac5dfb577e4cdd5ed2d23-r # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
+      image: refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-1669231479-r # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-368ac42fa548fd85a41ac5dfb577e4cdd5ed2d23-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
+      image: refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-1669231479-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
     datadogTags: kube_namespace:worker-agi-flux-v2
 ---
 apiVersion: v1
