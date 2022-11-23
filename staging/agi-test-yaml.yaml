@@ -262,7 +262,7 @@ metadata:
   annotations:
     filter.fluxcd.io/pipelineRunner: glob:refs-pull-59-merge-*-pipeline-runner
 spec:
-  releaseName: ''
+  releaseName: pipeline
   interval: 2m0s
   chart:
     spec:
