@@ -95,14 +95,14 @@ spec:
     r:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
-        repository: biomage-org/worker
-        tag: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-dba03ff5bc82584eaf4f109b7e4636fb8596c553-1669311607-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
+        repository: worker
+        tag: refs-pull-41-merge-5285072d8426b1d6d3e033a91b6cb7f2c75b00f6-1669315124-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
       memoryRequest: 4Gi
     python:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
-        repository: biomage-org/worker
-        tag: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-dba03ff5bc82584eaf4f109b7e4636fb8596c553-1669311607-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
+        repository: worker
+        tag: refs-pull-41-merge-5285072d8426b1d6d3e033a91b6cb7f2c75b00f6-1669315124-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
     kubernetes:
       env: staging
     serviceAccount:
