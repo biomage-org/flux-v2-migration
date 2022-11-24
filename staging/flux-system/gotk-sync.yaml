@@ -6,11 +6,11 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 2m0s
+  interval: 1m0s
   ref:
     branch: master
   secretRef:
-    name: trv-secret
+    name: biomage-flux-secret
   url: ssh://git@github.com/biomage-org/flux-v2-migration
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
