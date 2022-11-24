@@ -74,18 +74,20 @@ spec:
         kind: GitRepository
         name: pipeline
         namespace: pipeline-STAGING_SANDBOX_ID
+  values:
+    replicaCount: 0
+    clusterEnv: staging
+    sandboxId: STAGING_SANDBOX_ID
+    image:
+      registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
+      repository: biomage-org/pipeline
+      tag: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-e7db3b841988d3e32508182b3d9a9b23ee0f39fa--1669310958 # {"$imagepolicy": "pipeline-STAGING_SANDBOX_ID:pipeline:tag"}
+    memoryRequest: 4Gi
+    serviceAccount:
+      iamRole: pipeline-role-staging
+    datadogTags: kube_namespace:pipeline-STAGING_SANDBOX_ID
   valuesFrom:
     - kind: ConfigMap
       valuesKey: account-config.yaml
       name: account-config
       optional: false
-  values:
-    clusterEnv: staging
-    pipelineRunner:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/pipeline:refs-pull-59-merge-980f35f8d6cd128d510fda69ff8e7bb6f5c1f8d8-- # {"$imagepolicy": "pipeline-STAGING_SANDBOX_ID:pipeline:tag"}
-    sandboxId: STAGING_SANDBOX_ID
-    memoryRequest: 4Gi
-    replicaCount: 0
-    serviceAccount:
-      iamRole: pipeline-role-staging
-    datadogTags: kube_namespace:pipeline-STAGING_SANDBOX_ID
