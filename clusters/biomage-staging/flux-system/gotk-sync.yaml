@@ -19,8 +19,8 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./clusters/biomage-staging
+  interval: 2m0s
+  path: ./staging
   prune: true
   sourceRef:
     kind: GitRepository
