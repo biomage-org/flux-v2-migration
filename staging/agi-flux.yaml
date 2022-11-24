@@ -104,7 +104,7 @@ spec:
     name: account-config
     valuesKey: account-config.yaml
     optional: false
-      # filled in by CI. do not modify.
+    # filled in by CI. do not modify.
 ---
 apiVersion: v1
 kind: Namespace
@@ -321,10 +321,10 @@ spec:
     sandboxId: agi-flux
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-9bc3e5aa3edc6d1dc955054ff7716f8f47f27d9c-1669279768-r # {"$imagepolicy": "worker-agi-flux:worker-r:tag"}
+      image: refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-1669231479-r # {"$imagepolicy": "worker-agi-flux:worker-r:tag"}
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-9bc3e5aa3edc6d1dc955054ff7716f8f47f27d9c-1669279768-python # {"$imagepolicy": "worker-agi-flux:worker-python:tag"}
+      image: refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-1669231479-python # {"$imagepolicy": "worker-agi-flux:worker-python:tag"}
     datadogTags: kube_namespace:worker-agi-flux
 ---
 apiVersion: v1
