@@ -69,7 +69,7 @@ spec:
   git:
     commit:
       author:
-        name: Flux CI/CD
+        name: Flux Image Autoupdate
         email: ci@biomage.net
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -102,8 +102,8 @@ spec:
     sandboxId: STAGING_SANDBOX_ID
     replicaCount: 0
     r:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-9bc3e5aa3edc6d1dc955054ff7716f8f47f27d9c-1669279768-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
       memoryRequest: 4Gi
     python:
-      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-60cbbb03fb4cbbb4d662a386d9dba84f6160772b-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
+      image: 242905224710.dkr.ecr.eu-west-1.amazonaws.com/worker:refs-pull-41-merge-9bc3e5aa3edc6d1dc955054ff7716f8f47f27d9c-1669279768-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
     datadogTags: kube_namespace:worker-STAGING_SANDBOX_ID
