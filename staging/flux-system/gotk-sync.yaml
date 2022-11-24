@@ -10,7 +10,7 @@ spec:
   ref:
     branch: master
   secretRef:
-    name: flux-system
+    name: trv-secret
   url: ssh://git@github.com/biomage-org/flux-v2-migration
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
