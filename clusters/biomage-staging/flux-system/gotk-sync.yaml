@@ -10,7 +10,7 @@ spec:
   ref:
     branch: master
   secretRef:
-    name: biomage-staging-flux-secret
+    name: biomage-flux-secret
   url: ssh://git@github.com/biomage-org/flux-v2-migration
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
@@ -19,7 +19,7 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 2m0s
+  interval: 10m0s
   path: ./clusters/biomage-staging
   prune: true
   sourceRef:
