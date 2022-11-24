@@ -104,7 +104,7 @@ spec:
     name: account-config
     valuesKey: account-config.yaml
     optional: false
-      # filled in by CI. do not modify.
+    # filled in by CI. do not modify.
 ---
 apiVersion: v1
 kind: Namespace
@@ -206,7 +206,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-30e29944cce87f6c642e9fb7c287dc60ce05854d-1669306166 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
+      tag: refs-pull-39-merge-1dc7ece54ec749d0c097ccdcc1226180483a514d-1669318860 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
