@@ -142,11 +142,11 @@ spec:
   imageRepositoryRef:
     name: api
   filterTags:
-    pattern: ^refs-pull-39-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)$
-    extract: $timestamp
+    pattern: ^(?P<version>[0-9]+\.[0-9]+\.[0-9]+)$
+    extract: $version
   policy:
-    numerical:
-      order: asc
+    semver:
+      range: >=0.0.0
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
@@ -206,7 +206,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-ca2beb1f5931d9138ac33cb85586f822c301b0d4-1669360691 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
+      tag: 0.49.0 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
