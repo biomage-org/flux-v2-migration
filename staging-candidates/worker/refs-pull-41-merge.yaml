@@ -34,7 +34,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-r
+    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-r$
     extract: $timestamp
   policy:
     numerical:
@@ -49,7 +49,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-python
+    pattern: ^refs-pull-41-merge-[a-f0-9]+-(?P<timestamp>[0-9]+)-python$
     extract: $timestamp
   policy:
     numerical:
@@ -96,13 +96,13 @@ spec:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-pull-41-merge-8bf65269327a28f13a0d6a5cc60bb3767a8cb182-1669368067-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
+        tag: refs-pull-41-merge-7df09515a3f04ff6466791438956987ce58bfb3f-1669369713-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
       memoryRequest: 4Gi
     python:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-pull-41-merge-8bf65269327a28f13a0d6a5cc60bb3767a8cb182-1669368067-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
+        tag: refs-pull-41-merge-7df09515a3f04ff6466791438956987ce58bfb3f-1669369713-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
     kubernetes:
       env: staging
     serviceAccount:
