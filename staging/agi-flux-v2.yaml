@@ -34,11 +34,11 @@ spec:
   imageRepositoryRef:
     name: ui
   filterTags:
-    pattern: ^(?P<version>[0-9]+\.[0-9]+\.[0-9]+)$
-    extract: $version
+    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)$
+    extract: $timestamp
   policy:
-    semver:
-      range: ">=0.0.0"
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
@@ -95,7 +95,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: 0.58.0 # {"$imagepolicy": "ui-agi-flux-v2:ui:tag"}
+      tag: refs-heads-master-c32e7abfd18712009edc2e371191b3fc16498bd5-1 # {"$imagepolicy": "ui-agi-flux-v2:ui:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
@@ -253,11 +253,11 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-r$
-    extract: $version
+    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)-r$
+    extract: $timestamp
   policy:
-    semver:
-      range: '>=0.0.0'
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImagePolicy
@@ -268,11 +268,11 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-python$
-    extract: $version
+    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)-python$
+    extract: $timestamp
   policy:
-    semver:
-      range: '>=0.0.0'
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
@@ -315,13 +315,13 @@ spec:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-tags-0.35.1-r # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
+        tag: refs-heads-master-0b2501ab94cefd874d9998131fceaf8ac10212e9-1-r # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
       memoryRequest: 4Gi
     python:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-tags-0.35.1-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
+        tag: refs-heads-master-0b2501ab94cefd874d9998131fceaf8ac10212e9-1-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
     kubernetes:
       env: staging
     serviceAccount:
@@ -369,11 +369,11 @@ spec:
   imageRepositoryRef:
     name: pipeline
   filterTags:
-    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-pipeline-runner
-    extract: $version
+    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)-pipeline-runner$
+    extract: $timestamp
   policy:
-    semver:
-      range: '>=0.0.0'
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
@@ -416,7 +416,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: pipeline
-      tag: refs-tags-0.35.3-pipeline-runner # {"$imagepolicy": "pipeline-agi-flux-v2:pipeline:tag"}
+      tag: refs-heads-master-44071c60dbda1f12972e32fb55940a327ea6d654-pipeline-runner-1 # {"$imagepolicy": "pipeline-agi-flux-v2:pipeline:tag"}
     memoryRequest: 4Gi
     serviceAccount:
       iamRole: pipeline-role-staging
