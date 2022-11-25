@@ -253,7 +253,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-r
+    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-r$
     extract: $version
   policy:
     semver:
@@ -268,7 +268,7 @@ spec:
   imageRepositoryRef:
     name: worker
   filterTags:
-    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-python
+    pattern: ^refs-tags-(?P<version>[0-9]+\.[0-9]+\.[0-9]+)-python$
     extract: $version
   policy:
     semver:
@@ -315,13 +315,13 @@ spec:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-tags-0.35.1-r-builder # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
+        tag: refs-tags-0.33.0-r-builder # {"$imagepolicy": "worker-agi-flux-v2:worker-r:tag"}
       memoryRequest: 4Gi
     python:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-tags-0.35.1-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
+        tag: refs-tags-0.33.0-python # {"$imagepolicy": "worker-agi-flux-v2:worker-python:tag"}
     kubernetes:
       env: staging
     serviceAccount:
