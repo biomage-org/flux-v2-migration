@@ -369,7 +369,7 @@ spec:
   imageRepositoryRef:
     name: pipeline
   filterTags:
-    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)-pipeline-runner$
+    pattern: ^refs-heads-master-[a-f0-9]+-pipeline-runner-(?P<timestamp>[0-9]+)$
     extract: $timestamp
   policy:
     numerical:
