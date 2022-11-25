@@ -142,11 +142,11 @@ spec:
   imageRepositoryRef:
     name: api
   filterTags:
-    pattern: ^(?P<version>[0-9]+\.[0-9]+\.[0-9]+)$
-    extract: $version
+    pattern: ^refs-heads-master-[a-f0-9]+-(?P<timestamp>[0-9]+)$
+    extract: $timestamp
   policy:
-    semver:
-      range: ">=0.0.0"
+    numerical:
+      order: asc
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
@@ -206,7 +206,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: 0.49.3 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
+      tag: refs-heads-master-6e933c838ca13bbcd384dcacc909565025b4edbb-1 # {"$imagepolicy": "api-agi-flux-v2:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
