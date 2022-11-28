@@ -72,7 +72,7 @@ spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: -chart
+        name: ""
         namespace: api-STAGING_SANDBOX_ID
   values:
     service:
@@ -98,7 +98,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-dbaed7cbc4ee91779bdee91b64c279524c790e7f-1669634105 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
+      tag: refs-pull-39-merge-daea32cf2f3d677116b09ebe1f4c3eb369ef6f0b-1669635895 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
