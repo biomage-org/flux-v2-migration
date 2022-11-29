@@ -8,7 +8,7 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: -chart
+  name: api-chart
   namespace: api-STAGING_SANDBOX_ID
 spec:
   interval: 5m0s
@@ -72,7 +72,7 @@ spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: ""
+        name: api-chart
         namespace: api-STAGING_SANDBOX_ID
   values:
     service:
@@ -98,7 +98,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: api
-      tag: refs-pull-39-merge-daea32cf2f3d677116b09ebe1f4c3eb369ef6f0b-1669635895 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
+      tag: refs-pull-39-merge-d39b9b721616604ad8ba9510591ea16db9dc0f75-1669710434 # {"$imagepolicy": "api-STAGING_SANDBOX_ID:api:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: api-role-staging
