@@ -96,9 +96,10 @@ spec:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
       tag: refs-pull-87-merge-0d50ffe5ea71e94549b3666d4cde8057fc523007-1669715660 # {"$imagepolicy": "ui-agi-flux-test:ui:tag"}
-    replicaCount: 1
+    replicaCount: 2
     serviceAccount:
       iamRole: ui-role-staging
+    testThatAllIsFine: 3
   valuesFrom:
   - kind: ConfigMap
     name: account-config
