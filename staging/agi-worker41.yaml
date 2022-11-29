@@ -416,7 +416,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: pipeline
-      tag: refs-heads-master-1cbee9272c22e474742ac4162fae9db40fb37f2b-pipeline-runner # {"$imagepolicy": "pipeline-agi-worker41:pipeline:tag"}
+      tag: refs-heads-master-67b85c75997ee765099e6e592d87ee622e071447-pipeline-runner-2 # {"$imagepolicy": "pipeline-agi-worker41:pipeline:tag"}
     memoryRequest: 4Gi
     serviceAccount:
       iamRole: pipeline-role-staging
