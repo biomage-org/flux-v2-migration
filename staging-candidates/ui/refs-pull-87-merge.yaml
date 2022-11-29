@@ -8,7 +8,7 @@ metadata:
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
-  name: -chart
+  name: ui-chart
   namespace: ui-STAGING_SANDBOX_ID
 spec:
   interval: 5m0s
@@ -72,7 +72,7 @@ spec:
       chart: charts/nodejs
       sourceRef:
         kind: GitRepository
-        name: ""
+        name: ui-chart
         namespace: ui-STAGING_SANDBOX_ID
   values:
     # disable readiness probes as load balancer performs
@@ -95,7 +95,7 @@ spec:
     image:
       registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
       repository: ui
-      tag: refs-pull-87-merge-1657b296c98f124436c461c9a92bcb5865d041c9-1669637787 # {"$imagepolicy": "ui-STAGING_SANDBOX_ID:ui:tag"}
+      tag: refs-pull-87-merge-0d50ffe5ea71e94549b3666d4cde8057fc523007-1669715660 # {"$imagepolicy": "ui-STAGING_SANDBOX_ID:ui:tag"}
     replicaCount: 1
     serviceAccount:
       iamRole: ui-role-staging
