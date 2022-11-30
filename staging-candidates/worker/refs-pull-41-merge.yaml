@@ -14,7 +14,7 @@ spec:
   interval: 5m0s
   url: https://github.com/biomage-org/worker
   ref:
-    branch: FILLED_IN_BY_BIOMAGE_STAGE
+    branch: flux-v2-migration
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageRepository
@@ -96,13 +96,13 @@ spec:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-pull-41-merge-2cb93e64c08e3e4c663b130b35edde2a8bfb4ae4-1669808793-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
+        tag: refs-pull-41-merge-a8e7460044efe98df18668eafda0479e2bfaacaa-1669825604-r # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-r:tag"}
       memoryRequest: 4Gi
     python:
       image:
         registry: 242905224710.dkr.ecr.eu-west-1.amazonaws.com
         repository: worker
-        tag: refs-pull-41-merge-2cb93e64c08e3e4c663b130b35edde2a8bfb4ae4-1669808793-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
+        tag: refs-pull-41-merge-a8e7460044efe98df18668eafda0479e2bfaacaa-1669825604-python # {"$imagepolicy": "worker-STAGING_SANDBOX_ID:worker-python:tag"}
     kubernetes:
       env: staging
     serviceAccount:
